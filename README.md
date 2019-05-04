@@ -1,5 +1,6 @@
 Tạo Project với [Create React App](https://github.com/facebook/create-react-app).
-##npm create-react-app tenApp
+
+## npm create-react-app tenApp
 
 ## Chạy project
 
