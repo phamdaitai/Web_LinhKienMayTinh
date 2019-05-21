@@ -1,0 +1,11 @@
+h1 Login
+
+    form(action='/users/login', method="POST")
+        .form-group
+            label(for="name") Name
+            input#name.form-control(name="name",type="text")
+
+        .form-group
+            label(for="phone") Phone
+            input#phone.form-control(name="phone",type="text")
+        button.btn.btn-primary Login

@@ -1,0 +1,30 @@
+extends ../layouts/productCommon
+
+block content 
+
+    a.btn.btn-primary(href='/productmanager/create') Tạo mặt hàng mới
+    br
+    br
+
+    table.table
+            tr
+                th Ảnh
+                th Tên mặt hàng
+                th giá
+                th Hãng
+                th Số lượng
+                th Chỉnh sửa
+                th Xóa
+            each product in products
+                tr
+                    td 
+                        img(src=product.image, width="40")
+                    td=product.name
+                    td=product.price
+                    td=product.supplier
+                    td 
+                        p 
+                    td
+                        a.btn.btn-primary(href='#') Chỉnh sửa
+                    td 
+                        a.btn.btn-primary(href="#") Xóa

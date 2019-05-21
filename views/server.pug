@@ -1,0 +1,183 @@
+doctype html
+head
+  title Shop Phụ kiện
+  meta(charset='utf=8')
+  meta(name='viewport', content='with=device-with,initial-scale=1')
+  link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
+  script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js')
+  script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
+  link(rel='stylesheet', type='text/css', href='css/style.css')
+// Phần Top
+.container
+  nav.navbar.navbar-inverse.navbar-fixed-top
+    // fix cứng ở trên top
+    .container
+      // Cho full  màn hình
+      .navbar-header
+        // class header có sắn
+        button.navbar-toggle(type='button', data-toggle='collapse', data-target='#MyNavBar')
+          // Tạo 1 cái icon khi thu nhỏ màn hình
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.navbar-brand(href='#') Phụ kiện Online
+      #MyNavBar.collapse.navbar-collapse
+        // Trượt lên trược xuống bằng icon khi màn thu nhỏ
+        ul.nav.navbar-nav.navbar-left
+          li.active
+            a(href='/', style='font-size:15px;') Trang Chủ
+          // active mặc định
+          li.active
+            a(href='/auth/login', style='font-size:15px;') Đăng nhập admin
+          li
+            a.glyphicon.glyphicon-earphone(href='#', style='font-size:15px;') Hotline: 0123456789
+            
+        ul.nav.navbar-nav.navbar-right
+          li
+            a(href='/cart/cart')
+              span.glyphicon.glyphicon-shopping-cart
+              | Giỏ hàng
+          li
+            a(href='/users/create')
+              span.glyphicon.glyphicon-user
+              | Đăng ký
+          // icon đăng ký
+          li
+            a(href='/users/login')
+              span.glyphicon.glyphicon-log-in
+              | Đăng nhập
+          // icon đăng nhập
+// Phần logo
+.container.logo
+h1 Phụ kiện
+// Phần menu
+.container-fluid
+    #menuLeft
+    ul
+        li Loại
+    li
+        a(href='#', style='color: red') Chuột
+    li
+        a(href='#') Bàn Phím
+    li
+        a(href='#') Màn Hình
+    li
+        a(href='#') Ram
+    li
+        a(href='#') Ổ cứng
+    li.dropdown
+        a.dropdown-toggle(data-toggle='dropdown', href='#')
+            | Khác 
+            span.caret
+        // icon tam giác
+        ul.dropdown-menu
+            li
+                a(href='#') A
+            li
+                a(href='#') B
+            li
+                a(href='#') C
+            li
+                a(href='#') D
+    #menuRight
+        form(action='abc.php')
+            input(type='text', placeholder='Search')
+            input(type='Submit')
+    // Phần banner
+    .container-fluid
+        .col-md-12.col-sm-12(style='background-color: white;')
+        img(src="#", alt='No Banner', style='width: 100%;padding-left: 210px;padding-right: 50px;height: 250px')
+// Phần sp tiêu biểu
+// Phần sp tiêu biểu
+section.content1
+  .container-fluid
+    .row
+      .col-md-9.col-sm-12.col-md-push-3.ktm
+        .sp1
+          .widget_text
+            h2 Sản Phẩm
+          .box-ct
+            each product in products
+              .col-sm-4
+                .boxsp1
+                  .img-sp
+                    img(src=product.image, alt=product.name, width="250", hight="250")
+                    .sale-off
+                  .captionsp
+                    h3=product.name
+                    p.center-block
+                      span.sale-off-title Giá: 
+                      span(stype='color:red')=product.price
+                      span.sale-off-title đồng
+                  .nutxemchitiet.text-center
+                    a.btn.btn-warning.btn-md(href='/productdetail/'+product._id)
+                      i.fa.fa-info(aria-hidden='true')
+                      |  Xem chi tiết
+           
+            .clearfix
+            .nutxemthem.text-center
+              a(href='') Xem thêm
+      .col-md-3.col-sm-12.col-md-pull-9
+        .sidebar
+          .widget_text
+            h2 Quảng cáo
+          .imgqc
+            a(href='https://truonganh.vn/dich-vu/sua-chua-laptop/')
+              h3 Sửa chữa laptop giá rẻ
+              img(width='250', hight='250', src='images/sualaptop.png', alt='Sửa laptop')
+            a(href='http://thegioididong.com')
+              h3 Mua điện thoại chính hãng
+              img(width='250', hight='250' src='images/thegioididong.png', alt='Mua điện thoại')
+            a(href='https://thegioiphukien.vn')
+              h3 Phụ kiện điện thoại
+              img(width='250', hight='250' src='images/phukiendienthoai.jpg', alt='Phụ kiện điện thoại')
+.end
+    h2 Thông tin cửa hàng
+// Phần footer
+footer.container-fluid.text-center
+  .footer-top
+    .container-fluid
+      .row
+        .col-sm-4
+          .ft-ft
+            h3 THẾ GIỚI PHỤ KIỆN - THÔNG TIN CỬA HÀNG
+            p
+              strong Địa Chỉ
+              span Đại Học Bách Khoa Hà Nội 
+            p
+              strong Website:
+              a(href='') webphukien.vn
+            p
+              strong Email:
+              span phamdaitai9899@gmail.com
+            p
+              strong Hotline:
+              span 0123456789
+        .col-sm-4
+          .ft-ft.text-center.hln
+            h3 Tư vấn và hỗ trợ
+            p
+              strong
+                img.glyphicon.glyphicon-phone(src='img/bg1.png', alt='')
+                | (099) - 999 - 9999
+            p
+              strong
+                img.glyphicon.glyphicon-phone(src='img/bg1.png', alt='')
+                | (088) - 888 - 8888
+        .col-sm-4
+          .ft-ft.text-center
+            h3 Kết nối với chúng tôi
+              p
+                a(href='https://www.facebook.com/') 
+                  img(src='statics/facebook-icon.png', alt='Facebook', width="40")
+                  p
+                a(href='https://id.zalo.me') 
+                  img(src='statics/zalo.png', alt='Zalo', width="40")
+                  p 
+                a(href='https://twitter.com') 
+                  img(src='statics/twitter-icon.png', alt='Twitter', width="40")
+                  p 
+  a(href='#myPage', title='To Top')
+    // Trỏ về Body
+    span.glyphicon.glyphicon-chevron-up
+  p Go Home
