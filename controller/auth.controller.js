@@ -23,7 +23,7 @@ module.exports.portLogin = function(req,res){
             res.render('auth/login');
             return;
         }
-        res.cookie('userId', user._id);
+        console.log(user._id);
         res.redirect('/users');
     });
 }

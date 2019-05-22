@@ -7,7 +7,7 @@ module.exports.requireAuth = function(req,res,next){
         return;
     }
     //Kiem tra dang nhap admin
-    User.find({phone:req.cookies.userId},function(err,user){
+    User.find({_id: req.cookies.userId},function(err,user){
         if(err){
             console.log(err);
             res.render('auth/login');
