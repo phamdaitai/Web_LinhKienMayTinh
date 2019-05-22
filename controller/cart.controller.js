@@ -5,8 +5,17 @@ var Product = require('../models/productmanager.model');
 //xem gio hang
 module.exports.getCart = function(req,res){
     var userId = req.cookies.userId;
-    Cart.find({user_id: userId}, function(err,cart){
-        res.render('cart/cart');
+    Cart.find({user_id: userId}, async function(err,carts){
+        const products =[];
+        for(var i=0; i < carts.length; i++){
+            const temp = await Product.find({_id: carts[i].product_id});//lay mang cua 1 phan tu
+            products[i] = temp[0];//lay phan tu dau tien cua mang ghi vao mang product
+            products[i].quantity = carts[i].quantity;//lấy số lượng sản phẩm được đặt.
+        }
+        
+        res.render('cart/cart',{
+            products: products,
+        });
     })
 };
 

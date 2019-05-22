@@ -4,9 +4,10 @@ mongoose.connect = ('mongodb://localhost/express-demo');
 var productSchema = new mongoose.Schema({
     name: String,
     type: String,
-    price: String,
+    price: Number,
     supplier: String,
     image: String,
+    quantity: Number,
 });
 
 var Product = mongoose.model('Product', productSchema, 'products');

@@ -22,6 +22,10 @@ block content
             label(for="supplier") Hãng
             input#supplier.form-control(name="supplier",type="text", value=values ? values.supplier : "")
         .form-group
+            label(for="quantity") Số lượng
+            input#quantity.form-control(name="quantity",type="text", value=values ? values.quantity : "")
+        .form-group
             label(for="image") Ảnh
             input#avatar.form-control-file(name="image",type="file")
+        
         button.btn.btn-primary Tạo

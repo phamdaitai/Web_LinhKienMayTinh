@@ -28,7 +28,7 @@ head
             a(href='/', style='font-size:15px;') Trang Chủ
           // active mặc định
           li.active
-            a(href='/auth/login', style='font-size:15px;') Đăng nhập admin
+            a(href='/admin/login', style='font-size:15px;') Đăng nhập admin
           li
             a.glyphicon.glyphicon-earphone(href='#', style='font-size:15px;') Hotline: 0123456789
             
@@ -107,7 +107,7 @@ section.content1
                     h3=product.name
                     p.center-block
                       span.sale-off-title Giá: 
-                      span(stype='color:red')=product.price
+                      span(stype='color:red')=product.price+" "
                       span.sale-off-title đồng
                   .nutxemchitiet.text-center
                     a.btn.btn-warning.btn-md(href='/productdetail/'+product._id)

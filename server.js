@@ -7,11 +7,11 @@ mongoose.connect('mongodb://localhost/web-phu-kien');
 
 var userRoute = require('./router/user.route');
 var productManagerRoute = require('./router/productmanager.route');
-var authRoute = require('./router/auth.route');
+var adminRoute = require('./router/admin.route');
 var producDetailRoute = require('./router/productdetail.route');
 var cartRoute = require('./router/cart.route');
 
-var authMiddlewares = require('./middlewares/auth.middlewares');
+var authMiddlewares = require('./middlewares/admin.middlewares');
 
 var Product = require('./models/productmanager.model');
 
@@ -37,7 +37,7 @@ app.get('/', function(req,res){
 
 app.use('/users/', authMiddlewares.requireAuth, userRoute);
 app.use('/productmanager/', authMiddlewares.requireAuth, productManagerRoute);
-app.use('/auth', authRoute);
+app.use('/admin', adminRoute);
 app.use('/productdetail/', producDetailRoute);
 app.use('/cart/', cartRoute);
 

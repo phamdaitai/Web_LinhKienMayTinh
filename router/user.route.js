@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var controller = require('../controller/user.controller');
-var authMiddlewares = require('../middlewares/auth.middlewares');
+var authMiddlewares = require('../middlewares/admin.middlewares');
 var multer = require('multer');
 var upload = multer({dest:'./public/uploads'});
 

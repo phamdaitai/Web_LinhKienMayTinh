@@ -12,7 +12,7 @@ module.exports.getCreate = function(req,res){
     res.render('productmanager/create');
 };
 
-module.exports.postCreate = function(req,res){
+module.exports.postCreate = async function(req,res){
 
     console.log(req.body);
 
@@ -33,6 +33,10 @@ module.exports.postCreate = function(req,res){
         errors.push('Hãng không hợp lệ');
     };
 
+    if(!req.body.quantity){
+        errors.push('Hãng không hợp lệ');
+    };
+
     if(errors.length){
         res.render('productmanager/create',{
             errors: errors,
@@ -44,15 +48,24 @@ module.exports.postCreate = function(req,res){
     req.body.image = req.file.path.split('\\').slice(1).join('/');
    
 
-    new Product({
+    const newProduct = new Product({
         name: req.body.name,
         type: req.body.type,
         price: req.body.price,
         supplier: req.body.supplier,
         image: req.body.image,
-    }).save(function(err, doc){
-        if(err) res.json(err);
-        else res.send('Successfully!');
+        quantity: req.body.quantity,
     });
-    res.redirect('/productmanager');
+
+    const newProductSaved = await newProduct.save();
+
+    if(newProductSaved === newProduct){
+        res.redirect("/productmanager");
+    }
+    else{
+        setTimeout(() => {
+            alert("Lỗi tạo sản phẩm !");
+            res.redirect("/users");
+        }, 3000);
+    }
 };

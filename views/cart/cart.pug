@@ -45,4 +45,24 @@ head
             a(href='/users/login')
               span.glyphicon.glyphicon-log-in
               | Đăng nhập
-              
+br
+br
+
+table.table
+  tr
+    th Ảnh 
+    th Tên 
+    th Giá
+    th Số lượng
+    th Xóa
+    each product in products
+      tr
+      td
+        a(href="../productdetail/"+product._id)
+          img.btn(src="../"+product.image, width="69")
+      td=product.name
+      td=product.price
+      td=product.quantity
+      td
+        a.btn.btn-primary(href='#') Xóa
+a.btn.btn-primary(href="#") Mua hàng
