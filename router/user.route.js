@@ -16,6 +16,8 @@ router.get('/search', controller.search);
 
 router.get('/login', controller.login);
 
+router.post('/login', controller.postLogin);
+
 router.get('/:id', controller.userDetail);
 
 router.get('/:id/delete', controller.getDelete);

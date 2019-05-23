@@ -11,7 +11,8 @@ var adminRoute = require('./router/admin.route');
 var producDetailRoute = require('./router/productdetail.route');
 var cartRoute = require('./router/cart.route');
 
-var authMiddlewares = require('./middlewares/admin.middlewares');
+var adminMiddlewares = require('./middlewares/admin.middlewares');
+var userMiddleWares = require('./middlewares/user.middlewares');
 
 var Product = require('./models/productmanager.model');
 
@@ -35,11 +36,11 @@ app.get('/', function(req,res){
 });
 
 
-app.use('/users/', authMiddlewares.requireAuth, userRoute);
-app.use('/productmanager/', authMiddlewares.requireAuth, productManagerRoute);
+app.use('/users/', userRoute);
+app.use('/productmanager/', adminMiddlewares.requireAuth, productManagerRoute);
 app.use('/admin', adminRoute);
 app.use('/productdetail/', producDetailRoute);
-app.use('/cart/', cartRoute);
+app.use('/cart/',userMiddleWares.requireAuth, cartRoute);
 
 app.listen(port, function(){
     console.log('server is running:' + port);

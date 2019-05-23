@@ -69,3 +69,33 @@ module.exports.postCreate = async function(req,res){
         }, 3000);
     }
 };
+
+module.exports.getDelete = function(req,res){
+    Product.remove({_id:req.params.id}, function(err){
+        if(err) res.json(err);
+        else res.redirect('/productmanager');
+    });
+};
+
+//chinh sua du lieu hang hoa
+module.exports.getUpdate = async function(req,res){
+    const product = await Product.find({_id:req.params.id});
+    res.render('productmanager/update',{
+        products: product[0],
+    });
+}
+
+module.exports.postUpdate = function(req,res){
+    req.body.image = req.file.path.split('\\').slice(1).join('/');
+    Product.update({_id:req.params.id},{
+        name: req.body.name,
+        type: req.body.type,
+        price: req.body.price,
+        supplier: req.body.supplier,
+        quantity: req.body.quantity,
+        image: req.body.image,
+    },function(err){
+        if(err) res.json(err);
+        else res.redirect('/productmanager');
+    });
+}

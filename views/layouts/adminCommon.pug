@@ -3,18 +3,24 @@ html
         link( rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous")
     body
         nav.navbar.navbar-expand-lg.navbar-light.bg-light
-            a.navbar-brand(href='/') Về trang chủ
+            a.navbar-brand(href='#') Phụ kiện online
             button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNav', aria-controls='navbarNav', aria-expanded='false', aria-label='Toggle navigation')
                 span.navbar-toggler-icon
             
             #navbarNav.collapse.navbar-collapse
                 ul.navbar-nav
                     li.nav-item
-                        a.nav-link(href='/') Home
+                        a.nav-link(href='/') Trang chủ
                     li.nav-item
-                        a.nav-link(href='/users') Users
+                        a.nav-link(href='/users') Người dùng
                     li.nav-item
-                        a.nav-link(href='/productmanager') Products
+                        a.nav-link(href='/productmanager') Sản phẩm
+                    li.nav-item
+                        a.nav-link(href='/admin/create') Đăng ký admin
+                    li.nav-item
+                        a.nav-link(href='/admin/list') Danh sách admin
+                    li.nav-item
+                        a.nav-link(href='/admin/detail') Trang cá nhân
             if user
                 p=user.name
 

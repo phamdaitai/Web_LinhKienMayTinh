@@ -12,4 +12,12 @@ router.get('/create', controller.getCreate);
 
 router.post('/create',upload.single('image'), controller.postCreate);
 
+router.get('/:id/delete', controller.getDelete);
+
+router.get('/:id/update', controller.getUpdate);
+
+router.post('/:id',upload.single('image'), controller.postUpdate);
+
+
+
 module.exports = router;

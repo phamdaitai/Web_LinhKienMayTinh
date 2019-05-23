@@ -1,7 +1,7 @@
-extends ../layouts/common
+extends ../layouts/userCommon
 
 block content
-    h1 Update
+    h1 Chỉnh sửa
 
     if errors
         each error in errors
@@ -23,4 +23,4 @@ block content
         .form-group
             label(for="avatar") Ảnh đại diện
             input#avatar.form-control-file(name="avatar",type="file")
-        button.btn.btn-primary Update
+        button.btn.btn-primary Gửi

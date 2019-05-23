@@ -75,7 +75,6 @@ module.exports.postCreate = async function(req,res){
  module.exports.search = function(req,res){
     var q = req.query.q;
     User.find({}, function(err,user){
-        console.log(user);
         var users = user.filter(function(u){
                 return u.name.toLowerCase().indexOf(q.toLowerCase()) != -1;
             });
@@ -86,11 +85,32 @@ module.exports.postCreate = async function(req,res){
 };
 
 //dang nhap
-module.exports.login = function(req, res){
-    res.render('users/login',{
+module.exports.login = function(req,res){
+    res.render('users/login');
+};
+
+
+module.exports.postLogin = function(req,res){
+    var phone = req.body.phone;
+    var password = req.body.password;
+
+    password=md5(password);
+
+    User.findOne({phone:phone, password:password}, function(err,user){
+        if(err){
+            console.log(err);
+            res.render('users/login');
+            return;
+        }
+        if(!user){
+            console.log(err);
+            res.render('users/login');
+            return;
+        }
+        res.cookie('userId', user._id);
+        res.redirect('/');
     });
 }
-
 
 //view
 module.exports.userDetail = function(req,res){
@@ -120,12 +140,14 @@ module.exports.getUpdate = async function(req,res){
 }
 
 module.exports.postUpdate = function(req,res){
+    req.body.avartar = req.file.path.split('\\').slice(1).join('/');
+    console.log(req.body);
     User.update({_id:req.params.id},{
         name: req.body.name,
         phone: req.body.phone,
         andress: req.body.andress,
         password: req.body.password,
-        image: req.body.image
+        avatar: req.body.avartar
     },function(err){
         if(err) res.json(err);
         else res.redirect('/users/'+ req.params.id);

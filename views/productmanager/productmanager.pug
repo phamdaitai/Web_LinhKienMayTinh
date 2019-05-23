@@ -24,6 +24,6 @@ block content
                     td=product.supplier
                     td=product.quantity
                     td
-                        a.btn.btn-primary(href='#') Chỉnh sửa
+                        a.btn.btn-primary(href='/productmanager/'+product.id+'/update') Chỉnh sửa
                     td 
-                        a.btn.btn-primary(href="#") Xóa
+                        a.btn.btn-primary(href='/productmanager/' + product.id + '/delete') Xóa

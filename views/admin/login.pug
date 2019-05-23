@@ -1,41 +1,5 @@
-doctype html
-head
-  title Shop Phụ kiện
-  meta(charset='utf=8')
-  meta(name='viewport', content='with=device-with,initial-scale=1')
-  link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
-  script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js')
-  script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
-  link(rel='stylesheet', type='text/css', href='css/style.css')
-
-.container
-  nav.navbar.navbar-inverse.navbar-fixed-top
-    // fix cứng ở trên top
-    .container
-      // Cho full  màn hình
-      .navbar-header
-        // class header có sắn
-        button.navbar-toggle(type='button', data-toggle='collapse', data-target='#MyNavBar')
-          // Tạo 1 cái icon khi thu nhỏ màn hình
-          span.icon-bar
-          span.icon-bar
-          span.icon-bar
-        a.navbar-brand(href='#') Phụ kiện Online
-      #MyNavBar.collapse.navbar-collapse
-        // Trượt lên trược xuống bằng icon khi màn thu nhỏ
-        ul.nav.navbar-nav.navbar-left
-          li.active
-            a(href='/', style='font-size:15px;') Trang Chủ
-          // active mặc định
-          li.active
-            a(href='/productmanager', style='font-size:15px;') Quản lý sản phẩm
-          li.active
-            a(href='/users', style='font-size:15px;') Quản lý người dùng
 
 
-br
-br
-br
 h1 Đăng nhập
 
 if errors

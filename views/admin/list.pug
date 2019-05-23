@@ -1,0 +1,19 @@
+extends ../layouts/adminCommon
+
+block content
+
+    h1 Danh sách admin
+
+        table.table
+            tr
+                th Ảnh đại diện
+                th Tên 
+                th Số điện thoại
+                th Địa chỉ email
+            each admin in admins
+                tr
+                    td 
+                        img(src="../"+admin.avatar, width="40")
+                    td=admin.name
+                    td=admin.phone
+                    td=admin.email

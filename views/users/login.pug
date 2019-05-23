@@ -1,11 +1,11 @@
-h1 Login
+h1 Đăng nhập
 
     form(action='/users/login', method="POST")
         .form-group
-            label(for="name") Name
-            input#name.form-control(name="name",type="text")
+            label(for="phone") Số điện thoại
+            input#phone.form-control(name="phone",type="text")
 
         .form-group
-            label(for="phone") Phone
-            input#phone.form-control(name="phone",type="text")
-        button.btn.btn-primary Login
+            label(for="password") Mật khẩu
+            input#password.form-control(name="password",type="password")
+        button.btn.btn-primary Gửi
