@@ -1,4 +1,5 @@
 var Product = require('../models/productmanager.model');
+var Cart = require('../models/cart.model');
 
 module.exports.product = function(req,res){
     Product.find().then(function(products){
@@ -73,8 +74,15 @@ module.exports.postCreate = async function(req,res){
 module.exports.getDelete = function(req,res){
     Product.remove({_id:req.params.id}, function(err){
         if(err) res.json(err);
-        else res.redirect('/productmanager');
+        //else res.redirect('/productmanager');
     });
+
+    Cart.remove({product_id: req.params.id}, function(err){
+        if(err) res.json(err);
+        //else res.redirect('/productmanager');
+    });
+
+    res.redirect('/productmanager');
 };
 
 //chinh sua du lieu hang hoa

@@ -48,6 +48,8 @@ head
               | Đăng nhập
           // icon đăng nhập
 // Phần logo
+br
+br
 .container.logo
 h1 Phụ kiện
 // Phần menu
@@ -80,9 +82,10 @@ h1 Phụ kiện
             li
                 a(href='#') D
     #menuRight
-        form(action='abc.php')
-            input(type='text', placeholder='Search')
+        form(action='products/search')
+            input(type='text', placeholder='Search', name="p")
             input(type='Submit')
+
     // Phần banner
     .container-fluid
         .col-md-12.col-sm-12(style='background-color: white;')
@@ -180,4 +183,3 @@ footer.container-fluid.text-center
   a(href='#myPage', title='To Top')
     // Trỏ về Body
     span.glyphicon.glyphicon-chevron-up
-  p Go Home

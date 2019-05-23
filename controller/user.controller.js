@@ -1,6 +1,7 @@
 var md5 = require('md5');
 
 var User = require('../models/user.model');
+var Cart = require('../models/cart.model');
 
 //trang chu nguoi dung
 module.exports.index = function(req,res){
@@ -127,8 +128,14 @@ module.exports.userDetail = function(req,res){
 module.exports.getDelete = function(req,res){
     User.remove({_id:req.params.id}, function(err){
         if(err) res.json(err);
-        else res.redirect('/users');
+        //else res.redirect('/users');
     });
+
+    Cart.remove({user_id:req.params.id}, function(err){
+        if(err) res.json(err);
+        //else res.redirect('/users');
+    });
+    res.redirect('/users');
 };
 
 //Chinh sua du lieu nguoi dung
