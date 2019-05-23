@@ -62,7 +62,7 @@ head
             span(style='font-size:20px', stype='color:red')="Giá: " + products.price + " đồng"
             br
         th 
-            p(style='font-size:20px') Số lượng đang có: 
+            span(style='font-size:20px', stype='color:red')="Số lượng đang có: " + products.quantity + " sản phẩm"
         th 
              a.btn.btn-primary(href="../cart/"+products._id, style='font-size:20px') Thêm vào giỏ hàng
 

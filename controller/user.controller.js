@@ -94,8 +94,10 @@ module.exports.login = function(req,res){
 module.exports.postLogin = function(req,res){
     var phone = req.body.phone;
     var password = req.body.password;
+    console.log(phone);
 
     password=md5(password);
+    console.log(password);
 
     User.findOne({phone:phone, password:password}, function(err,user){
         if(err){
@@ -148,7 +150,8 @@ module.exports.getUpdate = async function(req,res){
 
 module.exports.postUpdate = function(req,res){
     req.body.avartar = req.file.path.split('\\').slice(1).join('/');
-    console.log(req.body);
+    //console.log(req.body);
+    req.body.password = md5(req.body.password);
     User.update({_id:req.params.id},{
         name: req.body.name,
         phone: req.body.phone,

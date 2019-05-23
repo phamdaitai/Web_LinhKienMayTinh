@@ -1,0 +1,23 @@
+h1 Chi tiết
+p       
+br
+table.table
+        tr
+                th Ảnh đại diện
+                th Tên 
+                th Số điện thoại
+                th Địa chỉ
+                th Sửa
+                tr
+                        td 
+                                img(src="../"+ user.avatar, width="40")
+                        td=user.name
+                        td=user.phone
+                        td=user.andress
+                        td
+                                a(href='/person/'+user._id+'/update') Sửa
+
+                           
+
+br
+a.btn.btn-primary(href='/cart/cart') Quay lại 

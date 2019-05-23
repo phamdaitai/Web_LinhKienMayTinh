@@ -25,6 +25,9 @@ block content
             label(for="quantity") Số lượng
             input#quantity.form-control(name="quantity",type="text", value=values ? values.quantity : "")
         .form-group
+            label(for="describe") Miêu tả
+            input#describe.form-control(name="describe",type="text", value=values ? values.describe : "")
+        .form-group
             label(for="image") Ảnh
             input#avatar.form-control-file(name="image",type="file")
         

@@ -15,8 +15,6 @@ module.exports.getCreate = function(req,res){
 
 module.exports.postCreate = async function(req,res){
 
-    console.log(req.body);
-
     var errors = [];
     if(!req.body.name){
         errors.push('Tên không hợp lệ');
@@ -31,6 +29,10 @@ module.exports.postCreate = async function(req,res){
     };
 
     if(!req.body.supplier){
+        errors.push('Hãng không hợp lệ');
+    };
+
+    if(!req.body.describe){
         errors.push('Hãng không hợp lệ');
     };
 
@@ -54,6 +56,7 @@ module.exports.postCreate = async function(req,res){
         type: req.body.type,
         price: req.body.price,
         supplier: req.body.supplier,
+        describe: req.body.describe,
         image: req.body.image,
         quantity: req.body.quantity,
     });
@@ -100,6 +103,7 @@ module.exports.postUpdate = function(req,res){
         type: req.body.type,
         price: req.body.price,
         supplier: req.body.supplier,
+        describe: req.body.describe,
         quantity: req.body.quantity,
         image: req.body.image,
     },function(err){

@@ -120,6 +120,7 @@ module.exports.getUpdate = async function(req,res){
 
 module.exports.postUpdate = function(req,res){
     req.body.avartar = req.file.path.split('\\').slice(1).join('/');
+    req.body.password = md5(req.body.password);
     Admin.update({_id:req.params.id},{
         name: req.body.name,
         phone: req.body.phone,

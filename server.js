@@ -11,6 +11,7 @@ var productRoute = require('./router/product.route');
 var productManagerRoute = require('./router/productmanager.route');
 var producDetailRoute = require('./router/productdetail.route');
 var cartRoute = require('./router/cart.route');
+var personRoute = require('./router/person.router');
 
 var adminMiddlewares = require('./middlewares/admin.middlewares');
 var userMiddleWares = require('./middlewares/user.middlewares');
@@ -43,6 +44,7 @@ app.use('/products', productRoute);
 app.use('/productmanager/', adminMiddlewares.requireAuth, productManagerRoute);
 app.use('/productdetail/', producDetailRoute);
 app.use('/cart/',userMiddleWares.requireAuth, cartRoute);
+app.use('/person/', personRoute);
 
 app.listen(port, function(){
     console.log('server is running:' + port);

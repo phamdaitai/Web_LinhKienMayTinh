@@ -13,6 +13,7 @@ block content
                 th giá
                 th Hãng
                 th Số lượng
+                th Miêu tả
                 th Chỉnh sửa
                 th Xóa
             each product in products
@@ -20,9 +21,10 @@ block content
                     td 
                         img(src=product.image, width="40")
                     td=product.name
-                    td=product.price
+                    td=product.price+ " đồng"
                     td=product.supplier
                     td=product.quantity
+                    td=product.describe
                     td
                         a.btn.btn-primary(href='/productmanager/'+product.id+'/update') Chỉnh sửa
                     td 

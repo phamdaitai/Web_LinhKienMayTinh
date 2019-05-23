@@ -64,5 +64,9 @@ table.table
       td=product.price
       td=product.quantity
       td
-        a.btn.btn-primary(href='#') Xóa
+        a.btn.btn-primary(href='/cart/'+product._id+'/delete') Xóa
+  a.btn.btn-primary(href="../person/person") Thông tin cá nhân
+span="Tổng tiền: "+money+" đồng"
+br
+br
 a.btn.btn-primary(href="#") Mua hàng
