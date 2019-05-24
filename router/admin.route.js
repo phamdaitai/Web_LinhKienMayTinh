@@ -3,7 +3,10 @@ var router = express.Router();
 var controller = require('../controller/admin.controller');
 var multer = require('multer');
 var upload = multer({dest:'./public/product'});
+var adminMiddlewares = require('../middlewares/admin.middlewares');
 
+
+router.get('/', adminMiddlewares.requireAuth, controller.getAdmin);
 
 router.get('/login', controller.login);
 

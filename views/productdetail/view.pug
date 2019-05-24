@@ -45,6 +45,8 @@ head
             a(href='/users/login')
               span.glyphicon.glyphicon-log-in
               | Đăng nhập
+
+
 .container
   h1 Chi tiết sản phẩm
   .row
@@ -61,8 +63,10 @@ head
         th
             span(style='font-size:20px', stype='color:red')="Giá: " + products.price + " đồng"
             br
-        th 
+        th
+            //-if product.quantity>0 
             span(style='font-size:20px', stype='color:red')="Số lượng đang có: " + products.quantity + " sản phẩm"
+            //-if product.quantity = 0
         th 
              a.btn.btn-primary(href="../cart/"+products._id, style='font-size:20px') Thêm vào giỏ hàng
 

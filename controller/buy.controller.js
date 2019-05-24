@@ -58,23 +58,27 @@ module.exports.buy = function(req,res){
         const userInfo = await User.find({_id: req.cookies.userId});
 
         //Them vao thanh toan
-        const newPayment = new Payment({
-            username: userInfo[0].name,
-            userphone: userInfo[0].phone,
-            productname: productInfo,
-            money: money,
-        });
-    
-        const newPaymentSaved = await newPayment.save();
-    
-        if(newPaymentSaved === newPayment){
-            console.log("Thanh toan thanh cong");
+        if(money > 0){ // Kiểm tra giỏ hàng có bị trống hay k
+            const newPayment = new Payment({
+                username: userInfo[0].name,
+                userphone: userInfo[0].phone,
+                userandress: userInfo[0].andress,
+                productname: productInfo,
+                money: money,
+            });
+        
+            const newPaymentSaved = await newPayment.save();
+        
+            if(newPaymentSaved === newPayment){
+                console.log("Thanh toan thanh cong");
+            }
+            else{
+                setTimeout(() => {
+                    alert("Lỗi tạo sản phẩm !");
+                }, 3000);
+            }
         }
-        else{
-            setTimeout(() => {
-                alert("Lỗi tạo sản phẩm !");
-            }, 3000);
-        }
+
 
         res.redirect('/cart/cart');
          
@@ -90,4 +94,20 @@ module.exports.payment = function(req,res){
                 payments: payments
         });
     });
+};
+
+//xac nhan don hang
+module.exports.verify = async function(req,res){
+    var id = req.params.id;
+
+    Payment.remove({_id: id}, function(err){
+        if(err) res.json(err);
+    });
+
+    Payment.find().then(function(payments){
+        res.render('payment/payment',{
+                payments: payments
+        });
+    });
+
 };

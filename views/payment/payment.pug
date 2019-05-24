@@ -6,11 +6,16 @@ block content
             tr
                 th Tên người mua
                 th Số điện thoại
+                th Địa chỉ 
                 th Mua các sản phẩm
                 th Tổng tiền thanh toán
+                th Xác nhận đơn hàng
             each payment in payments
                 tr
                     td=payment.username
                     td=payment.userphone
+                    td=payment.userandress
                     td=payment.productname
-                    td=payment.money 
+                    td=payment.money+" đồng"
+                    td
+                        a.btn.btn-primary(href='/buy/'+payment._id+'/verify') Xác nhận

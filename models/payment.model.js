@@ -4,6 +4,7 @@ mongoose.connect = ('mongodb://localhost/express-demo');
 var paymentSchema = new mongoose.Schema({
     username: String,
     userphone: String,
+    userandress: String,
     productname: String,
     money: Number,
 });

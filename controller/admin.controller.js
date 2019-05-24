@@ -3,6 +3,16 @@ var md5 = require('md5');
 var User = require('../models/user.model');
 var Admin = require('../models/admin.model');
 
+
+module.exports.getAdmin = function(req,res){
+    var id = req.cookies.adminId;
+    Admin.find({_id:id}).then(function(admin){
+        res.render('admin/detail',{
+                admin: admin[0]
+        });
+    });
+}
+
 module.exports.login = function(req,res){
     res.render('admin/login');
 };
@@ -26,7 +36,7 @@ module.exports.portLogin = function(req,res){
             return;
         }
         res.cookie('adminId', admin._id);
-        res.redirect('/users');
+        res.redirect('/admin');
     });
 }
 

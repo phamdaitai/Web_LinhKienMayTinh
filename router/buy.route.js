@@ -9,5 +9,7 @@ router.get('/', controller.buy);
 
 router.get('/payment', controller.payment);
 
+router.get('/:id/verify', controller.verify);
+
 
 module.exports = router;
