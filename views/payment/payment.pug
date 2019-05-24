@@ -1,0 +1,16 @@
+extends ../layouts/adminCommon
+
+block content
+
+        table.table
+            tr
+                th Tên người mua
+                th Số điện thoại
+                th Mua các sản phẩm
+                th Tổng tiền thanh toán
+            each payment in payments
+                tr
+                    td=payment.username
+                    td=payment.userphone
+                    td=payment.productname
+                    td=payment.money 
