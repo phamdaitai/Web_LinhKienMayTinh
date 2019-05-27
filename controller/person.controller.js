@@ -1,5 +1,6 @@
 var md5 = require('md5');
 var User = require('../models/user.model');
+var Product = require('../models/productmanager.model');
 
 //Thong tin ca nha
 module.exports.getPerson = async function(req,res){
@@ -32,3 +33,10 @@ module.exports.postUpdate = function(req,res){
         else res.redirect('/person/person');
     });
 }
+
+module.exports.logout = async function(req,res){
+
+    res.clearCookie('userId');
+
+    res.redirect('/');
+};

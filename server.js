@@ -18,6 +18,7 @@ var adminMiddlewares = require('./middlewares/admin.middlewares');
 var userMiddleWares = require('./middlewares/user.middlewares');
 
 var Product = require('./models/productmanager.model');
+var User = require('./models/user.model');
 
 const port = 3000;
 
@@ -29,11 +30,17 @@ app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
+app.use(express.static('public'));
 
-app.get('/', function(req,res){
+app.get('/', async function(req,res){
+    var cookie = req.cookies.userId;
+    const user = await User.find({_id: cookie});
+
     Product.find().then(function(products){
         res.render('server',{
-                products: products
+                products: products,
+                cookie: cookie,
+                user: user[0],
         });
     });
 });
@@ -41,7 +48,7 @@ app.get('/', function(req,res){
 
 app.use('/users/', userRoute);
 app.use('/admin', adminRoute);
-app.use('/products', productRoute);
+app.use('/products/', productRoute);
 app.use('/productmanager/', adminMiddlewares.requireAuth, productManagerRoute);
 app.use('/productdetail/', producDetailRoute);
 app.use('/cart/',userMiddleWares.requireAuth, cartRoute);
@@ -53,4 +60,3 @@ app.listen(port, function(){
 })
 
 
-app.use(express.static('public'));

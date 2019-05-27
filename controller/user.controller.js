@@ -1,6 +1,7 @@
 var md5 = require('md5');
 
 var User = require('../models/user.model');
+var Product = require('../models/productmanager.model');
 var Cart = require('../models/cart.model');
 
 //trang chu nguoi dung
@@ -61,12 +62,12 @@ module.exports.postCreate = async function(req,res){
     const newUserSaved = await newUser.save();
 
     if(newUserSaved === newUser){
-        res.redirect("/users");
+        res.redirect("/");
     }
     else{
         setTimeout(() => {
             alert("Error create user !");
-            res.redirect("/users");
+            res.redirect("/");
         }, 3000);
     }
     
@@ -79,6 +80,9 @@ module.exports.postCreate = async function(req,res){
         var users = user.filter(function(u){
                 return u.name.toLowerCase().indexOf(q.toLowerCase()) != -1;
             });
+        for(var i=0; i<users.length; i++){
+            users[i].avatar = "../"+users[i].avatar;
+        }
         res.render('users/index',{
             users:users
         });
@@ -94,10 +98,8 @@ module.exports.login = function(req,res){
 module.exports.postLogin = function(req,res){
     var phone = req.body.phone;
     var password = req.body.password;
-    console.log(phone);
 
     password=md5(password);
-    console.log(password);
 
     User.findOne({phone:phone, password:password}, function(err,user){
         if(err){

@@ -1,0 +1,13 @@
+.menuLeft > ul{
+    display: flex;
+    flex-direction: row;
+}
+.menuLeft > ul{
+    list-style-type: none;
+}
+.menuLeft > ul a{
+    padding: 5px 10px; 
+}
+.menuLeft .active{
+    color: red;
+}

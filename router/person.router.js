@@ -10,4 +10,6 @@ router.get('/:id/update', controller.getUpdate);
 
 router.post('/:id',upload.single('avatar'), controller.postUpdate);
 
+router.get('/logout', controller.logout);
+
 module.exports = router;
