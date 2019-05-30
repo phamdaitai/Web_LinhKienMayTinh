@@ -1,11 +1,14 @@
-h1 Đăng nhập
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+link(rel='stylesheet', type='text/css', href='../styles/login.css')
 
-    form(action='/users/login', method="POST")
+section.container-fluid.bg
+  section.row.justify-content-center
+    section.col-12.col-sm-6.col-md-3
+      form.form-container(action='/users/login', method="POST")
         .form-group
-            label(for="phone") Số điện thoại
-            input#phone.form-control(name="phone",type="text")
-
+          label(for='phone') Số điện thoại
+          input#phone.form-control(name='phone', type='text', placeholder='Nhập số điện thoại')
         .form-group
-            label(for="password") Mật khẩu
-            input#password.form-control(name="password",type="password")
-        button.btn.btn-primary Gửi
+          label(for='password') Mật khẩu
+          input#password.form-control(name='password', type='password', placeholder='Nhập mật khẩu')
+        button.btn.btn-primary.btn-block(type='submit') Đăng nhập

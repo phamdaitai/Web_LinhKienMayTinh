@@ -7,6 +7,7 @@ head
   script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js')
   script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
   link(rel='stylesheet', type='text/css', href='styles/home.css')
+  link(rel='stylesheet', type='text/css', href='../styles/home.css')
 
 // Phần Top7
 body
@@ -64,31 +65,6 @@ body
   // Phần menu
   .container-fluid
       .menuLeft
-        //ul
-          li
-              a.active(href='#') Chuột
-          li
-              a(href='#') Bàn Phím
-          li
-              a(href='#') Màn Hình
-          li
-              a(href='#') Ram
-          li
-              a(href='#') Ổ cứng
-          li.dropdown
-              a.dropdown-toggle(data-toggle='dropdown', href='#')
-                  | Khác 
-                  span.caret
-        // icon tam giác
-        //ul.dropdown-menu
-            li
-                a(href='#') A
-            li
-                a(href='#') B
-            li
-                a(href='#') C
-            li
-                a(href='#') D
       #menuRight
           form(action="/products/search", method="GET")
             input(type="text", name="p")
@@ -124,10 +100,22 @@ body
                       a.btn.btn-warning.btn-md(href='/productdetail/'+product._id)
                         i.fa.fa-info(aria-hidden='true')
                         |  Xem chi tiết
-            
+              
+              
               .clearfix
               .nutxemthem.text-center
-                a(href='') Xem thêm
+                ul.pagination
+                  li.page-item
+                    if(page>1)
+                      a.page-link(href='/?page='+ --page)="<<"
+                  li.page-item
+                    a.page-link(href='/?page='+page)=page
+                  li.page-item
+                    if(page<numberPage)
+                      a.page-link(href='/?page='+ ++page)=page
+                  li.page-item
+                    if(page<numberPage)
+                      a.page-link(href='/?page='+ ++page)=">>"
         .col-md-3.col-sm-12.col-md-pull-9
           .sidebar
             ul.list-group
@@ -135,19 +123,19 @@ body
                 a(href='#')
                 | DANH MỤC
               li.list-group-item
-                a(href='/products/dell')
+                a(href='/products/supplier/?sup=Dell')
                  | DELL
               li.list-group-item
-                a(href='/products/fulhen') 
+                a(href='/products/supplier/?sup=Fulhen') 
                  | FULHEN
               li.list-group-item
-                a(href='/products/logitech')
+                a(href='/products/supplier/?sup=Logitech')
                  | LOGITECH
               li.list-group-item
-                a(href='/products/lenovo')
+                a(href='/products/supplier/?sup=Lenovo')
                  | LENOVO
               li.list-group-item
-                a(href='/products/hp')
+                a(href='/products/supplier/?sup=HP')
                  | HP
             .widget_text
               h2 Quảng cáo

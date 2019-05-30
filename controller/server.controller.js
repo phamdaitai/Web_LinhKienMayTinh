@@ -22,12 +22,25 @@ module.exports.server = async function(req,res){
     ads[1] = ad[y];
     ads[2] = ad[z];
 
-    Product.find().then(function(products){
+    //phân trang
+    var page = parseInt(req.query.page) || 1;
+    var perPage = 9;
+
+    var start = (page-1)*perPage;
+    var end = page * perPage;
+
+    const products = await Product.find();
+
+    var numberPage = products.length;
+    numberPage = Math.ceil(numberPage/perPage);
+
         res.render('server',{
-                products: products,
+                products: products.slice(start,end),
                 cookie: cookie,
                 user: user[0],
                 ads: ads,
+                page: page,
+                numberPage: numberPage,
         });
-    });
+    
 };

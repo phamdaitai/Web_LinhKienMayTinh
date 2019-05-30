@@ -1,13 +1,6 @@
-.menuLeft > ul{
-    display: flex;
-    flex-direction: row;
-}
-.menuLeft > ul{
-    list-style-type: none;
-}
-.menuLeft > ul a{
-    padding: 5px 10px; 
-}
-.menuLeft .active{
-    color: red;
+.bg{
+    background: url('../background/product.png') no-repeat;
+    width: 100%;
+    height: 100vh;
+    background-size: 100%; 
 }

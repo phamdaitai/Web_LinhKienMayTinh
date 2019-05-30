@@ -66,7 +66,10 @@ head
         th
             //-if product.quantity>0 
             span(style='font-size:20px', stype='color:red')="Số lượng đang có: " + products.quantity + " sản phẩm"
-            //-if product.quantity = 0
+            br
+        th
+            span(style='font-size:20px', stype='color:red')="Chi tiết: " + products.describe
+            br
         th 
              a.btn.btn-primary(href="../cart/"+products._id, style='font-size:20px') Thêm vào giỏ hàng
 

@@ -2,23 +2,23 @@ html
     head
         link( rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous")
     body
-        nav.navbar.navbar-expand-lg.navbar-light.bg-light
+        nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
             a.navbar-brand(href='#') Phụ kiện online
             button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNav', aria-controls='navbarNav', aria-expanded='false', aria-label='Toggle navigation')
                 span.navbar-toggler-icon
             #navbarNav.navbar.navbar-inverse.navbar-fixed-top
                 ul.nav.navbar-nav.navbar-left
                     li.nav-item
-                        a.nav-link(href='/') Trang chủ
+                        a.nav-link(href='/' style='font-size:18px') Trang chủ
             #MyNavBar.collapse.navbar-collapse  
             #navbarNav.navbar.navbar-inverse.navbar-fixed-top 
                 ul.nav.navbar-nav.navbar-right
                     li.nav-item
-                        a.nav-link(href='/admin/detail') Trang cá nhân
+                        a.nav-link(href='/admin/detail' style='font-size:18px') Trang cá nhân
                     li.nav-item
-                        a.nav-link(href='/admin/create') Đăng ký admin
+                        a.nav-link(href='/admin/create' style='font-size:18px') Đăng ký admin
                     li.nav-item
-                        a.nav-link(href='/admin/logout') Đăng xuất
+                        a.nav-link(href='/admin/logout' style='font-size:18px') Đăng xuất
             if user
                 p=user.name
 
