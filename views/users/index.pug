@@ -1,32 +1,30 @@
 extends ../layouts/adminCommon
 
 block content
+            h1 Danh sách người dùng
+                form(action="/users/search", method="GET")
+                    input(type="text", name="q")
+                    button Tìm kiếm
 
-    h1 Danh sách người dùng
-        form(action="/users/search", method="GET")
-            input(type="text", name="q")
-            button Tìm kiếm
+                a.btn.btn-primary(href="users/create") Tạo người dùng
 
-        a.btn.btn-primary(href="users/create") Tạo người dùng
-
-        table.table
-            tr
-                th Ảnh đại diện
-                th Tên 
-                th Số điện thoại
-                th Địa chỉ
-                th Chi tiết
-                th Xóa
-            each user in users
-                tr
-                    td 
-                        img(src=user.avatar, width="40")
-                    td=user.name
-                    td=user.phone
-                    td=user.andress
-                    td 
-                        a.btn.btn-primary(href='/users/'+user.id) Click
-                    td
-                        a.btn.btn-primary(href='/users/' + user.id + '/delete') Xóa
-
+                table.table
+                    tr
+                        th Ảnh đại diện
+                        th Tên 
+                        th Số điện thoại
+                        th Địa chỉ
+                        th Chi tiết
+                        th Xóa
+                    each user in users
+                        tr
+                            td 
+                                img(src=user.avatar, width="40")
+                            td=user.name
+                            td=user.phone
+                            td=user.andress
+                            td 
+                                a.btn.btn-primary(href='/users/'+user.id) Click
+                            td
+                                a.btn.btn-primary(href='/users/' + user.id + '/delete') Xóa
 

@@ -18,7 +18,7 @@ module.exports.login = function(req,res){
 };
 
 
-module.exports.portLogin = function(req,res){
+module.exports.postLogin = function(req,res){
     var phone = req.body.phone;
     var password = req.body.password;
     
@@ -47,7 +47,6 @@ module.exports.getCreate = function(req,res){
 
 //Tao nguoi dung-ghi vao db
 module.exports.postCreate = async function(req,res){
-    console.log(req.body);
 
     var errors = [];
     if(!req.body.name){
@@ -141,4 +140,12 @@ module.exports.postUpdate = function(req,res){
         if(err) res.json(err);
         else res.redirect('/admin/list');
     });
-}
+};
+
+//Đăng xuất
+module.exports.logout = async function(req,res){
+
+    res.clearCookie('adminId');
+
+    res.redirect('/admin/login');
+};

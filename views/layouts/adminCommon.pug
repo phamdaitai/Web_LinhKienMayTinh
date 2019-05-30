@@ -6,24 +6,45 @@ html
             a.navbar-brand(href='#') Phụ kiện online
             button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNav', aria-controls='navbarNav', aria-expanded='false', aria-label='Toggle navigation')
                 span.navbar-toggler-icon
-            
             #navbarNav.navbar.navbar-inverse.navbar-fixed-top
-                ul.navbar-nav
+                ul.nav.navbar-nav.navbar-left
                     li.nav-item
                         a.nav-link(href='/') Trang chủ
+            #MyNavBar.collapse.navbar-collapse  
+            #navbarNav.navbar.navbar-inverse.navbar-fixed-top 
+                ul.nav.navbar-nav.navbar-right
                     li.nav-item
-                        a.nav-link(href='/users') Người dùng
-                    li.nav-item
-                        a.nav-link(href='/productmanager') Sản phẩm
-                    li.nav-item
-                        a.nav-link(href='/buy/payment') Thông tin thanh toán
+                        a.nav-link(href='/admin/detail') Trang cá nhân
                     li.nav-item
                         a.nav-link(href='/admin/create') Đăng ký admin
                     li.nav-item
-                        a.nav-link(href='/admin/list') Danh sách admin
-                    li.nav-item
-                        a.nav-link(href='/admin/detail') Trang cá nhân
+                        a.nav-link(href='/admin/logout') Đăng xuất
             if user
                 p=user.name
 
-        block content 
+        p       
+    br
+    .row
+        .col-md-2.col-sm-12.col-md-pull-10
+            ul.list-group
+              li.list-group-item.active
+                a(href='#')
+                | DANH MỤC
+            li.list-group-item
+                a(href='/users')
+                 | NGƯỜI DÙNG
+            li.list-group-item
+                a(href='/productmanager')
+                 | SẢN PHẨM
+            li.list-group-item
+                a(href='/buy/order')
+                 | XÁC NHẬN ĐƠN HÀNG
+            li.list-group-item
+                a(href='/admin/list')
+                 | DANH SÁCH ADMIN
+            li.list-group-item
+                a(href='/advertisement/ad')
+                 | QUẢNG CÁO
+        .col-md-10.col-sm-12.col-md-push-2.ktm
+    
+            block content

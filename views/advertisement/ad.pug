@@ -1,0 +1,21 @@
+extends ../layouts/adminCommon
+block content
+    
+    h1 Quảng cáo
+        p
+        a.btn.btn-primary(href="/advertisement/create") Thêm quảng cáo
+
+        table.table
+                    tr
+                        th Ảnh
+                        th Tên miêu tả
+                        th Đường dẫn
+                        th Xóa
+                    each ad in ads
+                        tr
+                            td 
+                                img(src=ad.image, width="40")
+                            td=ad.name
+                            td=ad.link
+                            td
+                                a.btn.btn-primary(href='/advertisement/' + ad.id + '/delete') Xóa

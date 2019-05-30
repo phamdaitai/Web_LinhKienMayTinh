@@ -135,29 +135,27 @@ body
                 a(href='#')
                 | DANH MỤC
               li.list-group-item
-                a.active(href='#')
+                a(href='/products/dell')
                  | DELL
               li.list-group-item
-                a(href='#') 
+                a(href='/products/fulhen') 
                  | FULHEN
               li.list-group-item
-                a(href='#')
+                a(href='/products/logitech')
                  | LOGITECH
               li.list-group-item
-                a(href='#')
+                a(href='/products/lenovo')
                  | LENOVO
+              li.list-group-item
+                a(href='/products/hp')
+                 | HP
             .widget_text
               h2 Quảng cáo
             .imgqc
-              a(href='https://truonganh.vn/dich-vu/sua-chua-laptop/')
-                h3 Sửa chữa laptop giá rẻ
-                img(width='250', hight='250', src='statics/sualaptop.png', alt='Sửa laptop')
-              a(href='http://thegioididong.com')
-                h3 Mua điện thoại chính hãng
-                img(width='250', hight='250' src='statics/thegioididong.png', alt='Mua điện thoại')
-              a(href='https://thegioiphukien.vn')
-                h3 Phụ kiện điện thoại
-                img(width='250', hight='250' src='statics/thegioiphukien.png', alt='Phụ kiện điện thoại')
+              each ad in ads
+                a(href=ad.link)
+                  h3=ad.name
+                  img(width='250', hight='250', src=ad.image, alt=ad.name)
   .end
       h2 Thông tin cửa hàng
   // Phần footer

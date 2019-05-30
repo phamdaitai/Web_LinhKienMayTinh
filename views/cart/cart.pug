@@ -32,19 +32,28 @@ head
             a.glyphicon.glyphicon-earphone(href='#', style='font-size:15px;') Hotline: 0123456789
             
         ul.nav.navbar-nav.navbar-right
-          li
-            a(href='/cart/cart')
-              span.glyphicon.glyphicon-shopping-cart
-              | Giỏ hàng
-          li
-            a(href='/users/create')
-              span.glyphicon.glyphicon-user
-              | Đăng ký
-          // icon đăng ký
-          li
-            a(href='/users/login')
-              span.glyphicon.glyphicon-log-in
-              | Đăng nhập
+            li
+              a(href='/cart/cart')
+                span.glyphicon.glyphicon-shopping-cart
+                | Giỏ hàng
+            li
+              if !cookie
+                a(href='/users/create')
+                  span.glyphicon.glyphicon-user
+                  | Đăng ký
+              if cookie
+                a(href='#',style='font-size:16px')
+                  span.glyphicon.glyphicon-user=user.name
+            // icon đăng ký
+            li
+              if !cookie
+                a(href='/users/login')
+                  span.glyphicon.glyphicon-log-in
+                  | Đăng nhập
+              if cookie
+                a(href='/person/logout')
+                  span.glyphicon.glyphicon-log-out
+                  | Đăng xuất
 br
 br
 if errors

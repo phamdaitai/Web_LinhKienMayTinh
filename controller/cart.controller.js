@@ -14,10 +14,14 @@ module.exports.getCart = function(req,res){
             products[i].quantity = carts[i].quantity;//lấy số lượng sản phẩm được đặt.
             money = money + products[i].price*products[i].quantity;
         }
+        var cookie = req.cookies.userId;
+        const user = await User.find({_id: cookie});//Lấy tên người dùng
         
         res.render('cart/cart',{
             products: products,
-            money: money
+            money: money, 
+            user: user[0],
+            cookie: cookie
         });
     })
 };
@@ -62,5 +66,5 @@ module.exports.getDelete = function(req,res){
         if(err) res.json(err);
         else res.redirect('/cart/cart');
     });
-
 };
+

@@ -2,20 +2,22 @@ extends ../layouts/adminCommon
 
 block content
 
-        table.table
-            tr
-                th Tên người mua
-                th Số điện thoại
-                th Địa chỉ 
-                th Mua các sản phẩm
-                th Tổng tiền thanh toán
-                th Xác nhận đơn hàng
-            each payment in payments
+            table.table
                 tr
-                    td=payment.username
-                    td=payment.userphone
-                    td=payment.userandress
-                    td=payment.productname
-                    td=payment.money+" đồng"
-                    td
-                        a.btn.btn-primary(href='/buy/'+payment._id+'/verify') Xác nhận
+                    th Mã đơn hàng
+                    th Tên người mua
+                    th Số điện thoại
+                    th Địa chỉ giao hàng
+                    th Mua các sản phẩm
+                    th Tổng tiền thanh toán
+                    th Xác nhận đơn hàng
+                each payment in payments
+                    tr
+                        td=payment._id
+                        td=payment.username
+                        td=payment.userphone
+                        td=payment.userandress
+                        td=payment.productname
+                        td=payment.money+" đồng"
+                        td
+                            a.btn.btn-primary(href='/buy/'+payment._id+'/verify') Xác nhận

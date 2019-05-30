@@ -1,0 +1,21 @@
+extends ../layouts/adminCommon
+
+block content
+    h1 Thêm quảng cáo
+
+    if errors
+        each error in errors
+            .alert.alert-danger=error
+
+    form(action='/advertisement/create', method="POST", enctype="multipart/form-data")
+        .form-group
+            label(for="name") Tên miêu tả
+            input#name.form-control(name="name",type="text", value=values ? values.name : "")
+        .form-group
+            label(for="link") Đường dẫn
+            input#link.form-control(name="link",type="text", value=values ? values.link : "")
+        .form-group
+            label(for="image") Ảnh đại diện
+            input#image.form-control-file(name="image",type="file")                
+        button.btn.btn-primary Gửi
+        
