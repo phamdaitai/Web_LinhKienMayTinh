@@ -11,8 +11,8 @@ node_modules
 >npm start
 
 ### deployment
-_Home:_ 
+**_Home:_** 
 [http://localhost:3000](http://localhost:3000)
 ###
-_Admin:_ 
+**_Admin:_** 
 [http://localhost:3000/admin](http://localhost:3000/admin)
