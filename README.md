@@ -1,4 +1,4 @@
-# Project II : Web bán linh kiện và phụ kiện máy tính
+#Web bán linh kiện và phụ kiện máy tính
 
 Mongo, Express, NodeJs, Bootstrap
 
