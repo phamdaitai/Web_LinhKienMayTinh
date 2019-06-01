@@ -13,7 +13,7 @@ head
 .container
   nav.navbar.navbar-inverse.navbar-fixed-top
     // fix cứng ở trên top
-    .container
+    .container-fluid
       // Cho full  màn hình
       .navbar-header
         // class header có sắn
@@ -67,8 +67,10 @@ head
             //-if product.quantity>0 
             span(style='font-size:20px', stype='color:red')="Số lượng đang có: " + products.quantity + " sản phẩm"
             br
+            br
         th
-            span(style='font-size:20px', stype='color:red')="Chi tiết: " + products.describe
+            span(style='font-size:18px', stype='color:red')="Chi tiết: " + products.describe
+            br
             br
         th 
              a.btn.btn-primary(href="../cart/"+products._id, style='font-size:20px') Thêm vào giỏ hàng
