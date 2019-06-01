@@ -8,7 +8,7 @@ node_modules
 
 ### run project
 
->nmp start
+>npm start
 
 ### deployment
 
