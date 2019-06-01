@@ -1,9 +1,16 @@
-Tạo Project với [Create React App](https://github.com/facebook/create-react-app).
+# Project II : Web bán linh kiện và phụ kiện máy tính
 
-## npm create-react-app tenApp
+Mongo, Express, NodeJs, Bootstrap
 
-## Chạy project
+### Package
+  
+node_modules
 
-### `npm start`
-Mở trình duyệt [http://localhost:3000](http://localhost:3000)
+### run project
+
+>nmp start
+
+### deployment
+
+[http://localhost:3000](http://localhost:3000)
 
