@@ -14,5 +14,5 @@ node_modules
 _Home:_ 
 [http://localhost:3000](http://localhost:3000)
 ###
-_*Admin:_ 
+_Admin:_ 
 [http://localhost:3000/admin](http://localhost:3000/admin)
